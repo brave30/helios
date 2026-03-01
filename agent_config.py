@@ -5,21 +5,25 @@ Define the questions and behaviour of your ElevenLabs calling agent here.
 Edit QUESTIONS and AGENT_NAME to suit your needs.
 """
 
+import os
+import pymongo
+from bson import ObjectId
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ---------------------------------------------------------------------------
 # Agent identity
 # ---------------------------------------------------------------------------
 AGENT_NAME = "SecondSense Caller"
 
 # ---------------------------------------------------------------------------
-# The questions the agent will ask you, in order.
-# Add, remove, or reorder as you like.
+# Default questions (used as fallback if no user metrics found)
 # ---------------------------------------------------------------------------
-QUESTIONS = [
+DEFAULT_QUESTIONS = [
     "How are you feeling today, on a scale from one to ten?",
     "What is your top priority for today?",
     "Is there anything blocking your progress or causing you stress?",
-    "What is one thing you are grateful for right now?",
-    "What is one thing you want to accomplish before the end of the day?",
 ]
 
 # ---------------------------------------------------------------------------
@@ -30,11 +34,43 @@ FIRST_MESSAGE = (
     "I have a few quick questions for you — just answer out loud and I'll listen. Ready? Let's begin."
 )
 
+
+def get_user_metrics(user_id: str) -> list:
+    """Fetch metrics.name from MongoDB for a given user_id."""
+    uri = os.getenv("MONGODB_URI")
+    if not uri:
+        return DEFAULT_QUESTIONS
+    
+    try:
+        client = pymongo.MongoClient(uri)
+        db = client["my-health-compass"]
+        collection = db["users"]
+        
+        user = collection.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            return DEFAULT_QUESTIONS
+        
+        metrics = user.get("metrics", [])
+        if not metrics:
+            return DEFAULT_QUESTIONS
+        
+        # Extract metric names as questions (take up to 3)
+        questions = [m["name"] for m in metrics[:3] if m.get("name")]
+        return questions if questions else DEFAULT_QUESTIONS
+    except Exception as e:
+        print(f"⚠️  Error fetching user metrics: {e}")
+        return DEFAULT_QUESTIONS
+
+
 # ---------------------------------------------------------------------------
 # System prompt — tells the LLM how to behave
 # ---------------------------------------------------------------------------
-def build_system_prompt() -> str:
-    numbered = "\n".join(f"{i+1}. {q}" for i, q in enumerate(QUESTIONS))
+def build_system_prompt(questions: list = None) -> str:
+    """Build the system prompt with the given questions or defaults."""
+    if questions is None:
+        questions = DEFAULT_QUESTIONS
+    
+    numbered = "\n".join(f"{i+1}. {q}" for i, q in enumerate(questions))
     return f"""You are a warm, friendly, and concise personal check-in assistant named SecondSense.
 
 Your ONLY job on this call is to ask the user the following questions, in order, one at a time:

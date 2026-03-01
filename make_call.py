@@ -10,8 +10,8 @@ Prerequisites:
   3. Run create_agent.py first to get your ELEVENLABS_AGENT_ID.
 
 Usage:
-    python make_call.py
-    python make_call.py --to +1XXXXXXXXXX   # override the target number
+    python make_call.py --user 69a38f826b19f94dd08f1c44
+    python make_call.py --user 69a38f826b19f94dd08f1c44 --to +1XXXXXXXXXX
 """
 
 import os
@@ -19,6 +19,7 @@ import sys
 import argparse
 import requests
 from dotenv import load_dotenv
+from agent_config import AGENT_NAME, FIRST_MESSAGE, build_system_prompt, get_user_metrics
 
 load_dotenv()
 
@@ -31,6 +32,49 @@ def get_env(key: str) -> str:
         print(f"❌ Missing or placeholder value for {key} in .env")
         sys.exit(1)
     return value
+
+
+def update_agent_with_questions(agent_id: str, questions: list) -> None:
+    """Update the ElevenLabs agent with user-specific questions."""
+    api_key = get_env("ELEVENLABS_API_KEY")
+    
+    headers = {
+        "xi-api-key": api_key,
+        "Content-Type": "application/json",
+    }
+    
+    payload = {
+        "name": AGENT_NAME,
+        "conversation_config": {
+            "agent": {
+                "prompt": {
+                    "prompt": build_system_prompt(questions),
+                    "llm": "gemini-2.0-flash",
+                    "temperature": 0.5,
+                },
+                "first_message": FIRST_MESSAGE,
+                "language": "en",
+            },
+            "tts": {
+                "voice_id": "EXAVITQu4vr4xnSDxMaL",
+            },
+        },
+    }
+    
+    print(f"📝 Updating agent with user's questions...")
+    for i, q in enumerate(questions, 1):
+        print(f"   {i}. {q}")
+    
+    response = requests.patch(
+        f"{BASE_URL}/convai/agents/{agent_id}",
+        headers=headers,
+        json=payload,
+    )
+    
+    if response.status_code not in (200, 201):
+        print(f"⚠️  Warning: Could not update agent: {response.text}")
+    else:
+        print(f"✅ Agent updated with {len(questions)} questions from MongoDB")
 
 
 import time
@@ -83,11 +127,16 @@ def wait_for_call_completion(agent_id: str, old_latest_conv: str = None):
             time.sleep(2)
 
 
-def make_outbound_call(to_number: str) -> None:
+def make_outbound_call(to_number: str, user_id: str = None) -> None:
     api_key              = get_env("ELEVENLABS_API_KEY")
     agent_id             = get_env("ELEVENLABS_AGENT_ID")
     phone_number_id      = get_env("ELEVENLABS_PHONE_NUMBER_ID")
 
+    # Update agent with user-specific questions from MongoDB
+    if user_id:
+        questions = get_user_metrics(user_id)
+        update_agent_with_questions(agent_id, questions)
+    
     # Capture the latest conv ID before we start the call
     try:
         current_convs = list_conversations(agent_id, page_size=1)
@@ -135,7 +184,12 @@ if __name__ == "__main__":
         default=None,
         help="Phone number to call. Defaults to MY_PHONE_NUMBER from .env.",
     )
+    parser.add_argument(
+        "--user",
+        required=True,
+        help="MongoDB user _id to fetch metrics/questions from.",
+    )
     args = parser.parse_args()
 
     target = args.to or get_env("MY_PHONE_NUMBER")
-    make_outbound_call(target)
+    make_outbound_call(target, user_id=args.user)

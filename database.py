@@ -16,7 +16,7 @@ def save_call_to_db(conversation_detail):
 
     try:
         client = pymongo.MongoClient(uri)
-        db = client["Clitoris"]
+        db = client["my-health-compass"]
         collection = db["users"]
 
         # Extract transcript
