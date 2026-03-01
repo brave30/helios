@@ -43,6 +43,9 @@ app.add_middleware(
 
 ELEVENLABS_BASE_URL = "https://api.elevenlabs.io/v1"
 
+# In-memory cache for disease questions (disease_name_lower -> response_data)
+_questions_cache: dict = {}
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Database
@@ -294,6 +297,22 @@ async def generate_questions(request: GenerateQuestionsRequest):
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Invalid user_id: {e}")
     
+    # Check cache first
+    cache_key = disease_name.lower()
+    if cache_key in _questions_cache:
+        print(f"📦 Cache hit for '{disease_name}'")
+        cached = _questions_cache[cache_key]
+        # Still save to MongoDB for this user
+        saved = save_questions_to_mongodb(user_id, cached["questions"])
+        return {
+            "success": True,
+            "disease": cached["disease"],
+            "disease_url": cached["disease_url"],
+            "questions": cached["questions"],
+            "saved": saved,
+            "cached": True
+        }
+    
     # Setup headless Chrome
     options = uc.ChromeOptions()
     options.add_argument('--headless=new')
@@ -317,12 +336,21 @@ async def generate_questions(request: GenerateQuestionsRequest):
         print(f"💾 Saving to MongoDB...")
         saved = save_questions_to_mongodb(user_id, questions)
         
+        # Cache the result
+        _questions_cache[cache_key] = {
+            "disease": symptoms_data["disease"],
+            "disease_url": symptoms_data["page_url"],
+            "questions": questions
+        }
+        print(f"📦 Cached questions for '{disease_name}'")
+        
         return {
             "success": True,
             "disease": symptoms_data["disease"],
             "disease_url": symptoms_data["page_url"],
             "questions": questions,
-            "saved": saved
+            "saved": saved,
+            "cached": False
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -458,4 +486,4 @@ async def health():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)
