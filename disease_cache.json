@@ -1,0 +1,1478 @@
+{
+  "recurrent respiratory papillomatosis (rrp)": {
+    "disease": "Recurrent Respiratory Papillomatosis (RRP)",
+    "disease_url": "https://rarediseases.org/rare-diseases/recurrent-respiratory-papillomatosis/?_rt=MnwxfHJlY3VycmVudCByZXNwaXJhdG9yeSBwYXBpbGxvbWF0b3NpcyAocnJwKXwxNzcyMzQ4Nzgx&_rt_nonce=74098f3c68",
+    "questions": [
+      {
+        "question": "How would you rate the hoarseness of your voice today on a scale of 1-10?",
+        "tag": "Hoarseness"
+      },
+      {
+        "question": "Did you experience any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate the severity of your cough today on a scale of 1-10",
+        "tag": "Cough Severity"
+      }
+    ]
+  },
+  "alagille syndrome": {
+    "disease": "Alagille Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/alagille-syndrome/?_rt=MXwxfGFsYWdpbGxlIHN5bmRyb21lfDE3NzIzNDg4MDA&_rt_nonce=19b9466c69",
+    "questions": [
+      {
+        "question": "How would you rate your level of fatigue today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any yellowing of the skin or eyes (jaundice) today? (yes/no)",
+        "tag": "Jaundice"
+      },
+      {
+        "question": "How would you rate your level of itching (pruritus) today on a scale of 1-10?",
+        "tag": "Itching"
+      }
+    ]
+  },
+  "ehlers-danlos syndrome": {
+    "disease": "Ehlers-Danlos Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/ehlers-danlos-syndrome/?_rt=MjB8MXxlaGxlcnMtZGFubG9zIHN5bmRyb21lfDE3NzIzNDg4NTc&_rt_nonce=06ef882a5d",
+    "questions": [
+      {
+        "question": "How would you rate your joint pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any dizziness or lightheadedness today? (yes/no)",
+        "tag": "Dizziness"
+      },
+      {
+        "question": "Rate your overall fatigue level on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "dravet syndrome": {
+    "disease": "Dravet Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/dravet-syndrome-spectrum/?_rt=MnwxfGRyYXZldCBzeW5kcm9tZXwxNzcyMzQ4ODcz&_rt_nonce=d11bd64049",
+    "questions": [
+      {
+        "question": "How would you rate your seizure severity today on a scale of 1-10?",
+        "tag": "Seizure"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizure"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "bardet-biedl syndrome": {
+    "disease": "Bardet-Biedl Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/bardet-biedl-syndrome/?_rt=MXwxfGJhcmRldC1iaWVkbCBzeW5kcm9tZXwxNzcyMzQ4ODg3&_rt_nonce=656f6b25f7",
+    "questions": [
+      {
+        "question": "How would you rate your vision clarity today on a scale of 1-10?",
+        "tag": "Vision"
+      },
+      {
+        "question": "Are you experiencing any difficulty with balance or coordination today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "cystinosis": {
+    "disease": "Cystinosis",
+    "disease_url": "https://rarediseases.org/rare-diseases/cystinosis/?_rt=MXwxfGN5c3Rpbm9zaXN8MTc3MjM0ODkwMQ&_rt_nonce=aa6e05194c",
+    "questions": [
+      {
+        "question": "How would you rate your thirst level today on a scale of 1-10?",
+        "tag": "Thirst Level"
+      },
+      {
+        "question": "Did you experience any vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "angelman syndrome": {
+    "disease": "Angelman Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/angelman-syndrome/?_rt=MnwxfGFuZ2VsbWFuIHN5bmRyb21lfDE3NzIzNDg5MTU&_rt_nonce=2b6ba2f277",
+    "questions": [
+      {
+        "question": "How would you rate your overall happiness and mood today on a scale of 1-10?",
+        "tag": "Mood"
+      },
+      {
+        "question": "Did you experience any seizures or epileptic episodes today? (yes/no)",
+        "tag": "Seizures"
+      },
+      {
+        "question": "Rate your level of hyperactivity and restlessness on a scale of 1-10",
+        "tag": "Hyperactivity"
+      }
+    ]
+  },
+  "chiari malformation": {
+    "disease": "Chiari Malformation",
+    "disease_url": "https://rarediseases.org/rare-diseases/chiari-malformations/?_rt=M3wxfGNoaWFyaSBtYWxmb3JtYXRpb258MTc3MjM0ODkyOQ&_rt_nonce=b0d6eb3f82",
+    "questions": [
+      {
+        "question": "How would you rate your headache pain level today on a scale of 1-10?",
+        "tag": "Headache Pain"
+      },
+      {
+        "question": "Are you experiencing any dizziness or vertigo today? (yes/no)",
+        "tag": "Dizziness"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue Level"
+      }
+    ]
+  },
+  "alpha-1 antitrypsin deficiency": {
+    "disease": "Alpha-1 Antitrypsin Deficiency",
+    "disease_url": "https://rarediseases.org/rare-diseases/alpha-1-antitrypsin-deficiency/?_rt=MXwxfGFscGhhLTEgYW50aXRyeXBzaW4gZGVmaWNpZW5jeXwxNzcyMzQ4OTQ1&_rt_nonce=7fe04e688e",
+    "questions": [
+      {
+        "question": "How would you rate your shortness of breath today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Did you experience any coughing or wheezing today? (yes/no)",
+        "tag": "Respiratory"
+      },
+      {
+        "question": "Rate your fatigue level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "charge syndrome": {
+    "disease": "CHARGE Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/charge-syndrome/?_rt=MXwxfGNoYXJnZSBzeW5kcm9tZXwxNzcyMzQ4OTU5&_rt_nonce=66680c2a9b",
+    "questions": [
+      {
+        "question": "How would you rate your vision clarity today on a scale of 1-10?",
+        "tag": "Vision"
+      },
+      {
+        "question": "Are you experiencing any hearing difficulties today? (yes/no)",
+        "tag": "Hearing"
+      },
+      {
+        "question": "Rate your difficulty with swallowing or feeding on a scale of 1-10",
+        "tag": "Swallowing"
+      }
+    ]
+  },
+  "costello syndrome": {
+    "disease": "Costello Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/costello-syndrome/?_rt=MXwxfGNvc3RlbGxvIHN5bmRyb21lfDE3NzIzNDg5NzQ&_rt_nonce=39fda5e207",
+    "questions": [
+      {
+        "question": "How would you rate your pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "canavan disease": {
+    "disease": "Canavan Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/canavan-disease/?_rt=MXwxfGNhbmF2YW4gZGlzZWFzZXwxNzcyMzQ4OTg3&_rt_nonce=2ab99ae1b7",
+    "questions": [
+      {
+        "question": "How would you rate your child's muscle tone today on a scale of 1-10, where 1 is very floppy and 10 is very stiff?",
+        "tag": "Muscle Tone"
+      },
+      {
+        "question": "Did your child experience any seizures today? (yes/no)",
+        "tag": "Seizures"
+      },
+      {
+        "question": "How would you rate your child's overall alertness and responsiveness today on a scale of 1-10?",
+        "tag": "Alertness"
+      }
+    ]
+  },
+  "bloom syndrome": {
+    "disease": "Bloom Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/bloom-syndrome/?_rt=MXwxfGJsb29tIHN5bmRyb21lfDE3NzIzNDkwMDI&_rt_nonce=1e3898e282",
+    "questions": [
+      {
+        "question": "How would you rate your feeding difficulty today on a scale of 1-10?",
+        "tag": "Feeding"
+      },
+      {
+        "question": "Did you experience any skin rash or sensitivity today? (yes/no)",
+        "tag": "Skin"
+      },
+      {
+        "question": "Rate your fatigue level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "erdheim-chester disease": {
+    "disease": "Erdheim-Chester Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/erdheim-chester-disease/?_rt=M3wxfGVyZGhlaW0tY2hlc3RlciBkaXNlYXNlfDE3NzIzNDkwMTY&_rt_nonce=a560e9a1b8",
+    "questions": [
+      {
+        "question": "How would you rate your bone pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Are you experiencing any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your overall fatigue level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "aicardi syndrome": {
+    "disease": "Aicardi Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/aicardi-syndrome/?_rt=MXwxfGFpY2FyZGkgc3luZHJvbWV8MTc3MjM0OTAzMQ&_rt_nonce=8fcd751155",
+    "questions": [
+      {
+        "question": "How would you rate your muscle spasms today on a scale of 1-10?",
+        "tag": "Muscle Spasms"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizure Activity"
+      },
+      {
+        "question": "Rate your overall muscle weakness today on a scale of 1-10",
+        "tag": "Muscle Weakness"
+      }
+    ]
+  },
+  "cornelia de lange syndrome": {
+    "disease": "Cornelia de Lange Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/cornelia-de-lange-syndrome/?_rt=MXwxfGNvcm5lbGlhIGRlIGxhbmdlIHN5bmRyb21lfDE3NzIzNDkwNzM&_rt_nonce=11f0279bfd",
+    "questions": [
+      {
+        "question": "How would you rate your feeding difficulties today on a scale of 1-10?",
+        "tag": "Feeding"
+      },
+      {
+        "question": "Did you experience any vomiting or regurgitation today? (yes/no)",
+        "tag": "Gastro"
+      },
+      {
+        "question": "Rate your level of discomfort or pain due to limb anomalies on a scale of 1-10",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "dermatomyositis (rare autoimmune form)": {
+    "disease": "Dermatomyositis (rare autoimmune form)",
+    "disease_url": "https://rarediseases.org/rare-diseases/dermatomyositis/?_rt=MnwxfGRlcm1hdG9teW9zaXRpcyAocmFyZSBhdXRvaW1tdW5lIGZvcm0pfDE3NzIzNDkwODc&_rt_nonce=30d9d4be5d",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience any difficulty swallowing today? (yes/no)",
+        "tag": "Swallowing"
+      },
+      {
+        "question": "Rate your skin rash itching level today on a scale of 1-10",
+        "tag": "Skin Itching"
+      }
+    ]
+  },
+  "cat eye syndrome": {
+    "disease": "Cat Eye Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/cat-eye-syndrome/?_rt=MXwxfGNhdCBleWUgc3luZHJvbWV8MTc3MjM0OTEwMw&_rt_nonce=d1807ca3eb",
+    "questions": [
+      {
+        "question": "How would you rate your eye discomfort or vision problems today on a scale of 1-10?",
+        "tag": "Vision"
+      },
+      {
+        "question": "Are you experiencing any anal or rectal pain or discomfort today? (yes/no)",
+        "tag": "Anal Pain"
+      },
+      {
+        "question": "How would you rate your hearing difficulty or ear discomfort today on a scale of 1-10?",
+        "tag": "Hearing"
+      }
+    ]
+  },
+  "autoimmune encephalitis": {
+    "disease": "Autoimmune Encephalitis",
+    "disease_url": "https://rarediseases.org/rare-diseases/west-nile-encephalitis/?_rt=MTl8MXxhdXRvaW1tdW5lIGVuY2VwaGFsaXRpc3wxNzcyMzQ5MTE4&_rt_nonce=7b213c80d3",
+    "questions": [
+      {
+        "question": "How would you rate your headache severity today on a scale of 1-10?",
+        "tag": "Headache"
+      },
+      {
+        "question": "Are you experiencing any mental confusion or disorientation today? (yes/no)",
+        "tag": "Mental Clarity"
+      },
+      {
+        "question": "Rate your level of fatigue or weakness today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "chediak-higashi syndrome": {
+    "disease": "Chediak-Higashi Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/chediak-higashi-syndrome/?_rt=MnwxfGNoZWRpYWstaGlnYXNoaSBzeW5kcm9tZXwxNzcyMzQ5MTM1&_rt_nonce=a815163e13",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any unusual bleeding or bruising today? (yes/no)",
+        "tag": "Bleeding"
+      },
+      {
+        "question": "Rate your difficulty with balance or walking today on a scale of 1-10",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "adult-onset still disease": {
+    "disease": "Adult-Onset Still Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/adult-onset-stills-disease/?_rt=NHwxfGFkdWx0LW9uc2V0IHN0aWxsIGRpc2Vhc2V8MTc3MjM0OTE1Mg&_rt_nonce=7d7eccd1f1",
+    "questions": [
+      {
+        "question": "How would you rate your fever level today on a scale of 1-10?",
+        "tag": "Fever"
+      },
+      {
+        "question": "Did you experience any joint pain or stiffness today? (yes/no)",
+        "tag": "Joint Pain"
+      },
+      {
+        "question": "Rate your overall muscle pain level today on a scale of 1-10",
+        "tag": "Muscle Pain"
+      }
+    ]
+  },
+  "aspartylglucosaminuria": {
+    "disease": "Aspartylglucosaminuria",
+    "disease_url": "https://rarediseases.org/rare-diseases/aspartylglucosaminuria/?_rt=MXwxfGFzcGFydHlsZ2x1Y29zYW1pbnVyaWF8MTc3MjM0OTE2NA&_rt_nonce=b0dcf0b0c0",
+    "questions": [
+      {
+        "question": "How would you rate your sleep quality last night on a scale of 1-10?",
+        "tag": "Sleep Quality"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizures"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "ellis-van creveld syndrome": {
+    "disease": "Ellis-van Creveld Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/ellis-van-creveld-syndrome/?_rt=MXwxfGVsbGlzLXZhbiBjcmV2ZWxkIHN5bmRyb21lfDE3NzIzNDkyMDk&_rt_nonce=fdbbd94fc0",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "How would you rate your pain level in your joints today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Are you experiencing any chest pain today? (yes/no)",
+        "tag": "Chest Pain"
+      }
+    ]
+  },
+  "ataxia telangiectasia": {
+    "disease": "Ataxia Telangiectasia",
+    "disease_url": "https://rarediseases.org/rare-diseases/ataxia-telangiectasia/?_rt=MXwxfGF0YXhpYSB0ZWxhbmdpZWN0YXNpYXwxNzcyMzQ5MjIy&_rt_nonce=abf75d36a2&_rt_nonce=7c2df23eb0",
+    "questions": [
+      {
+        "question": "How would you rate your difficulty with coordination and balance today on a scale of 1-10?",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Did you experience any respiratory issues such as coughing or shortness of breath today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "brugada syndrome": {
+    "disease": "Brugada Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/brugada-syndrome/?_rt=MXwxfGJydWdhZGEgc3luZHJvbWV8MTc3MjM0OTIzNw&_rt_nonce=cee7aff712",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Have you experienced any fainting or loss of consciousness today? (yes/no)",
+        "tag": "Consciousness"
+      },
+      {
+        "question": "Rate your overall chest discomfort or pain level today on a scale of 1-10",
+        "tag": "Chest Pain"
+      }
+    ]
+  },
+  "cohen syndrome": {
+    "disease": "Cohen Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/cohen-syndrome/?_rt=MXwxfGNvaGVuIHN5bmRyb21lfDE3NzIzNDkyNTE&_rt_nonce=2d337914d2",
+    "questions": [
+      {
+        "question": "How would you rate your muscle strength today on a scale of 1-10?",
+        "tag": "Muscle Strength"
+      },
+      {
+        "question": "Did you experience any vision problems today? (yes/no)",
+        "tag": "Vision"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "acrodermatitis enteropathica": {
+    "disease": "Acrodermatitis Enteropathica",
+    "disease_url": "https://rarediseases.org/rare-diseases/acrodermatitis-enteropathica/?_rt=MXwxfGFjcm9kZXJtYXRpdGlzIGVudGVyb3BhdGhpY2F8MTc3MjM0OTI2NA&_rt_nonce=88de0ac14d",
+    "questions": [
+      {
+        "question": "How would you rate the severity of your diarrhea today on a scale of 1-10?",
+        "tag": "Diarrhea"
+      },
+      {
+        "question": "Are you experiencing any skin inflammation or lesions today? (yes/no)",
+        "tag": "Skin Health"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "digeorge syndrome": {
+    "disease": "DiGeorge Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/complete-digeorge-syndrome/?_rt=MnwxfGRpZ2VvcmdlIHN5bmRyb21lfDE3NzIzNDkyODA&_rt_nonce=36a5bfeb50",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizures"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "blue rubber bleb nevus syndrome": {
+    "disease": "Blue Rubber Bleb Nevus Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/blue-rubber-bleb-nevus-syndrome/?_rt=MXwxfGJsdWUgcnViYmVyIGJsZWIgbmV2dXMgc3luZHJvbWV8MTc3MjM0OTI5NA&_rt_nonce=f78f329e5b",
+    "questions": [
+      {
+        "question": "How would you rate your pain level from the lesions today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any bleeding or bruising today? (yes/no)",
+        "tag": "Bleeding"
+      },
+      {
+        "question": "Rate your fatigue level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "citrullinemia": {
+    "disease": "Citrullinemia",
+    "disease_url": "https://rarediseases.org/rare-diseases/citrullinemia-type-1/?_rt=NHwxfGNpdHJ1bGxpbmVtaWF8MTc3MjM0OTMwNw&_rt_nonce=a848400e0e",
+    "questions": [
+      {
+        "question": "How would you rate your level of lethargy today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "Rate your irritability level today on a scale of 1-10",
+        "tag": "Mood"
+      }
+    ]
+  },
+  "alexander disease": {
+    "disease": "Alexander Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/alexander-disease/?_rt=MXwxfGFsZXhhbmRlciBkaXNlYXNlfDE3NzIzNDkzMjE&_rt_nonce=dbda8e1109",
+    "questions": [
+      {
+        "question": "How would you rate your seizure frequency today on a scale of 1-10?",
+        "tag": "Seizures"
+      },
+      {
+        "question": "Are you experiencing any difficulty swallowing or speaking today? (yes/no)",
+        "tag": "Bulbar"
+      },
+      {
+        "question": "Rate your level of muscle stiffness and spasticity today on a scale of 1-10",
+        "tag": "Spasticity"
+      }
+    ]
+  },
+  "bartter syndrome": {
+    "disease": "Bartter Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/bartters-syndrome/?_rt=MXwxfGJhcnR0ZXIgc3luZHJvbWV8MTc3MjM0OTMzNQ&_rt_nonce=1ab8020d3f",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience excessive thirst today? (yes/no)",
+        "tag": "Thirst Level"
+      },
+      {
+        "question": "Rate your fatigue level today on a scale of 1-10",
+        "tag": "Fatigue Level"
+      }
+    ]
+  },
+  "apert syndrome": {
+    "disease": "Apert Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/apert-syndrome/?_rt=MXwxfGFwZXJ0IHN5bmRyb21lfDE3NzIzNDkzNDk&_rt_nonce=b1d1bcd727",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Are you experiencing any headaches today? (yes/no)",
+        "tag": "Headache"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "dandy-walker malformation": {
+    "disease": "Dandy-Walker Malformation",
+    "disease_url": "https://rarediseases.org/rare-diseases/dandy-walker-malformation/?_rt=OHwxfGRhbmR5LXdhbGtlciBtYWxmb3JtYXRpb258MTc3MjM0OTM2NQ&_rt_nonce=89fcc449f4",
+    "questions": [
+      {
+        "question": "How would you rate your coordination and balance today on a scale of 1-10?",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizures"
+      },
+      {
+        "question": "Rate your breathing difficulty today on a scale of 1-10",
+        "tag": "Breathing"
+      }
+    ]
+  },
+  "amyloidosis (primary)": {
+    "disease": "Amyloidosis (Primary)",
+    "disease_url": "https://rarediseases.org/rare-diseases/amyloidosis/?_rt=MjV8MXxhbXlsb2lkb3NpcyAocHJpbWFyeSl8MTc3MjM0OTM3OQ&_rt_nonce=f38ee316f4",
+    "questions": [
+      {
+        "question": "How would you rate your shortness of breath today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Did you experience any swelling in your legs or abdomen today? (yes/no)",
+        "tag": "Swelling"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "camurati-engelmann disease": {
+    "disease": "Camurati-Engelmann Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/camurati-engelmann-disease/?_rt=MXwxfGNhbXVyYXRpLWVuZ2VsbWFubiBkaXNlYXNlfDE3NzIzNDkzOTM&_rt_nonce=d943a84f01",
+    "questions": [
+      {
+        "question": "How would you rate your limb pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Are you experiencing extreme tiredness today? (yes/no)",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Rate your muscle weakness level today on a scale of 1-10",
+        "tag": "Muscle Strength"
+      }
+    ]
+  },
+  "duchenne muscular dystrophy": {
+    "disease": "Duchenne Muscular Dystrophy",
+    "disease_url": "https://rarediseases.org/rare-diseases/duchenne-muscular-dystrophy/?_rt=MnwxfGR1Y2hlbm5lIG11c2N1bGFyIGR5c3Ryb3BoeXwxNzcyMzQ5NDA5&_rt_nonce=31531f393a",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience any difficulty walking or climbing stairs today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "arteriovenous malformation": {
+    "disease": "Arteriovenous Malformation",
+    "disease_url": "https://rarediseases.org/rare-diseases/arteriovenous-malformation/?_rt=MXwxfGFydGVyaW92ZW5vdXMgbWFsZm9ybWF0aW9ufDE3NzIzNDk0MjQ&_rt_nonce=469bb31ded",
+    "questions": [
+      {
+        "question": "How would you rate your headache severity today on a scale of 1-10?",
+        "tag": "Headache"
+      },
+      {
+        "question": "Are you experiencing any muscle weakness or numbness today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your level of dizziness or lightheadedness today on a scale of 1-10",
+        "tag": "Dizziness"
+      }
+    ]
+  },
+  "emery-dreifuss muscular dystrophy": {
+    "disease": "Emery-Dreifuss Muscular Dystrophy",
+    "disease_url": "https://rarediseases.org/rare-diseases/emery-dreifuss-muscular-dystrophy/?_rt=OHwxfGVtZXJ5LWRyZWlmdXNzIG11c2N1bGFyIGR5c3Ryb3BoeXwxNzcyMzQ5NDM4&_rt_nonce=d31a80698a",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Are you experiencing any palpitations or irregular heartbeats today? (yes/no)",
+        "tag": "Heart Issues"
+      },
+      {
+        "question": "Rate your ability to move around comfortably today on a scale of 1-10",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "degos disease": {
+    "disease": "Degos Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/degos-disease/?_rt=MXwxfGRlZ29zIGRpc2Vhc2V8MTc3MjM0OTQ1Mg&_rt_nonce=e61a3ec090",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Abdominal Pain"
+      },
+      {
+        "question": "Did you experience any nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "Rate your fatigue level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "aniridia": {
+    "disease": "Aniridia",
+    "disease_url": "https://rarediseases.org/rare-diseases/aniridia-cerebellar-ataxia-mental-deficiency/?_rt=OXwxfGFuaXJpZGlhfDE3NzIzNDk0NjU&_rt_nonce=7f99b7bc98",
+    "questions": [
+      {
+        "question": "How would you rate your vision clarity today on a scale of 1-10?",
+        "tag": "Vision"
+      },
+      {
+        "question": "Are you experiencing any dizziness or balance issues today? (yes/no)",
+        "tag": "Balance"
+      },
+      {
+        "question": "Rate your level of coordination and muscle control on a scale of 1-10",
+        "tag": "Coordination"
+      }
+    ]
+  },
+  "central core disease": {
+    "disease": "Central Core Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/central-core-disease/?_rt=MXwxfGNlbnRyYWwgY29yZSBkaXNlYXNlfDE3NzIzNDk0Nzk&_rt_nonce=d3c1e93021",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience any muscle cramps or stiffness today? (yes/no)",
+        "tag": "Muscle Cramps"
+      },
+      {
+        "question": "How would you rate your difficulty with mobility, such as walking or standing, on a scale of 1-10?",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "allan-herndon-dudley syndrome": {
+    "disease": "Allan-Herndon-Dudley Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/mct8-specific-thyroid-hormone-cell-transporter-deficiency/?_rt=M3wxfGFsbGFuLWhlcm5kb24tZHVkbGV5IHN5bmRyb21lfDE3NzIzNDk0OTQ&_rt_nonce=187c740f1f",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience any difficulty walking or moving today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "How would you rate your sleep quality last night on a scale of 1-10?",
+        "tag": "Sleep Quality"
+      }
+    ]
+  },
+  "aase syndrome": {
+    "disease": "Aase Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/anemia-blackfan-diamond/?_rt=M3wxfGFhc2Ugc3luZHJvbWV8MTc3MjM0OTUxMA&_rt_nonce=f9ab6a0778",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any rapid heartbeat today? (yes/no)",
+        "tag": "Heart Rate"
+      },
+      {
+        "question": "Rate your overall weakness level today on a scale of 1-10",
+        "tag": "Weakness"
+      }
+    ]
+  },
+  "coffin-lowry syndrome": {
+    "disease": "Coffin-Lowry Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/coffin-lowry-syndrome/?_rt=N3wxfGNvZmZpbi1sb3dyeSBzeW5kcm9tZXwxNzcyMzQ5NTI2&_rt_nonce=57f1da95ac",
+    "questions": [
+      {
+        "question": "How would you rate your level of fatigue today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any episodes of drop attacks today? (yes/no)",
+        "tag": "Drop Attacks"
+      },
+      {
+        "question": "Rate your level of difficulty with speech or communication today on a scale of 1-10",
+        "tag": "Speech Difficulty"
+      }
+    ]
+  },
+  "bohring-opitz syndrome": {
+    "disease": "Bohring-Opitz Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/bohring-opitz-syndrome/?_rt=MXwxfGJvaHJpbmctb3BpdHogc3luZHJvbWV8MTc3MjM0OTU0MA&_rt_nonce=1a46bc3e52",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Did you experience any feeding problems today? (yes/no)",
+        "tag": "Feeding"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "alport syndrome": {
+    "disease": "Alport Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/alport-syndrome/?_rt=MXwxfGFscG9ydCBzeW5kcm9tZXwxNzcyMzQ5NTU1&_rt_nonce=e3c7ddcc62",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any vision problems today? (yes/no)",
+        "tag": "Vision"
+      },
+      {
+        "question": "How would you rate your hearing difficulty today on a scale of 1-10?",
+        "tag": "Hearing"
+      }
+    ]
+  },
+  "achondrogenesis": {
+    "disease": "Achondrogenesis",
+    "disease_url": "https://rarediseases.org/rare-diseases/achondrogenesis/?_rt=MXwxfGFjaG9uZHJvZ2VuZXNpc3wxNzcyMzQ5NTY4&_rt_nonce=7961004318",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Is your abdomen swollen or enlarged today? (yes/no)",
+        "tag": "Abdomen"
+      },
+      {
+        "question": "Rate your overall discomfort or pain level today on a scale of 1-10",
+        "tag": "Discomfort"
+      }
+    ]
+  },
+  "charcot-marie-tooth disease": {
+    "disease": "Charcot-Marie-Tooth Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/charcot-marie-tooth-disease/?_rt=MXwxfGNoYXJjb3QtbWFyaWUtdG9vdGggZGlzZWFzZXwxNzcyMzQ5NTgy&_rt_nonce=7b257f8747",
+    "questions": [
+      {
+        "question": "How would you rate your muscle weakness today on a scale of 1-10?",
+        "tag": "Muscle Weakness"
+      },
+      {
+        "question": "Did you experience any trouble with balance or tripping today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your sensitivity to touch or pain in your hands and feet today on a scale of 1-10?",
+        "tag": "Sensory Loss"
+      }
+    ]
+  },
+  "aarskog syndrome": {
+    "disease": "Aarskog Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/aarskog-syndrome/?_rt=MXwxfGFhcnNrb2cgc3luZHJvbWV8MTc3MjM0OTU5Ng&_rt_nonce=136734a21b",
+    "questions": [
+      {
+        "question": "How would you rate your overall physical discomfort today on a scale of 1-10?",
+        "tag": "Discomfort"
+      },
+      {
+        "question": "Are you experiencing any breathing difficulties today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "How would you rate your energy level today on a scale of 1-10?",
+        "tag": "Energy"
+      }
+    ]
+  },
+  "crouzon syndrome": {
+    "disease": "Crouzon Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/crouzon-syndrome/?_rt=MXwxfGNyb3V6b24gc3luZHJvbWV8MTc3MjM0OTYxMA&_rt_nonce=c2a72974e3",
+    "questions": [
+      {
+        "question": "How would you rate your eye discomfort level today on a scale of 1-10?",
+        "tag": "Eye Discomfort"
+      },
+      {
+        "question": "Did you experience any breathing difficulties today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your headache level today on a scale of 1-10",
+        "tag": "Headache"
+      }
+    ]
+  },
+  "antiphospholipid syndrome": {
+    "disease": "Antiphospholipid Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/antiphospholipid-syndrome/?_rt=MXwxfGFudGlwaG9zcGhvbGlwaWQgc3luZHJvbWV8MTc3MjM0OTYyNA&_rt_nonce=10025113c5",
+    "questions": [
+      {
+        "question": "How would you rate your pain level in your legs today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of swelling in your legs today on a scale of 1-10",
+        "tag": "Swelling"
+      }
+    ]
+  },
+  "diamond-blackfan anemia": {
+    "disease": "Diamond-Blackfan Anemia",
+    "disease_url": "https://rarediseases.org/rare-diseases/anemia-blackfan-diamond/?_rt=MjJ8MXxkaWFtb25kLWJsYWNrZmFuIGFuZW1pYXwxNzcyMzQ5NjM4&_rt_nonce=f9ab6a0778",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any irritability today? (yes/no)",
+        "tag": "Mood"
+      },
+      {
+        "question": "Rate your appetite level today on a scale of 1-10",
+        "tag": "Appetite"
+      }
+    ]
+  },
+  "congenital central hypoventilation syndrome": {
+    "disease": "Congenital Central Hypoventilation Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/congenital-central-hypoventilation-syndrome/?_rt=MXwxfGNvbmdlbml0YWwgY2VudHJhbCBoeXBvdmVudGlsYXRpb24gc3luZHJvbWV8MTc3MjM0OTY1Mw&_rt_nonce=77b5aec3e2",
+    "questions": [
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Did you experience any chest pain or cardiac issues today? (yes/no)",
+        "tag": "Cardiac"
+      },
+      {
+        "question": "Rate your overall energy level today on a scale of 1-10",
+        "tag": "Energy"
+      }
+    ]
+  },
+  "beta-mannosidosis": {
+    "disease": "Beta-Mannosidosis",
+    "disease_url": "https://rarediseases.org/rare-diseases/beta-mannosidosis/?_rt=MnwxfGJldGEtbWFubm9zaWRvc2lzfDE3NzIzNDk2NjY&_rt_nonce=666feacd28",
+    "questions": [
+      {
+        "question": "How would you rate your muscle strength today on a scale of 1-10?",
+        "tag": "Muscle Strength"
+      },
+      {
+        "question": "Did you experience any seizures today? (yes/no)",
+        "tag": "Seizure"
+      },
+      {
+        "question": "Rate your speech clarity today on a scale of 1-10",
+        "tag": "Speech Clarity"
+      }
+    ]
+  },
+  "behcet disease": {
+    "disease": "Behcet Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/behcets-syndrome/?_rt=M3wxfGJlaGNldCBkaXNlYXNlfDE3NzIzNDk2ODA&_rt_nonce=f60471b2c5",
+    "questions": [
+      {
+        "question": "How would you rate your mouth pain level today on a scale of 1-10?",
+        "tag": "Mouth Pain"
+      },
+      {
+        "question": "Did you experience any vision problems today? (yes/no)",
+        "tag": "Vision"
+      },
+      {
+        "question": "Rate your joint pain level today on a scale of 1-10",
+        "tag": "Joint Pain"
+      }
+    ]
+  },
+  "cleidocranial dysplasia": {
+    "disease": "Cleidocranial Dysplasia",
+    "disease_url": "https://rarediseases.org/rare-diseases/cleidocranial-dysplasia/?_rt=MXwxfGNsZWlkb2NyYW5pYWwgZHlzcGxhc2lhfDE3NzIzNDk2OTQ&_rt_nonce=8147e69804",
+    "questions": [
+      {
+        "question": "How would you rate your shoulder mobility today on a scale of 1-10?",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Are you experiencing any ear or sinus discomfort today? (yes/no)",
+        "tag": "Discomfort"
+      },
+      {
+        "question": "Rate your breathing ease today on a scale of 1-10",
+        "tag": "Breathing"
+      }
+    ]
+  },
+  "birt-hogg-dube syndrome": {
+    "disease": "Birt-Hogg-Dube Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/birt-hogg-dube-syndrome/?_rt=MXwxfGJpcnQtaG9nZy1kdWJlIHN5bmRyb21lfDE3NzIzNDk3MDk&_rt_nonce=b98d212a28",
+    "questions": [
+      {
+        "question": "How many new skin lesions have you noticed today? (count)",
+        "tag": "Skin Lesions"
+      },
+      {
+        "question": "On a scale of 1-10, how would you rate your breathing difficulty today?",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Have you experienced any chest pain or pneumothorax symptoms today? (yes/no)",
+        "tag": "Chest Pain"
+      }
+    ]
+  },
+  "addison disease (primary adrenal insufficiency)": {
+    "disease": "Addison Disease (Primary Adrenal Insufficiency)",
+    "disease_url": "https://rarediseases.org/rare-diseases/addisons-disease/?_rt=MjB8MXxhZGRpc29uIGRpc2Vhc2UgKHByaW1hcnkgYWRyZW5hbCBpbnN1ZmZpY2llbmN5KXwxNzcyMzQ5NzI1&_rt_nonce=509ee992b3",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "How would you rate your muscle pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      }
+    ]
+  },
+  "acromegaly": {
+    "disease": "Acromegaly",
+    "disease_url": "https://rarediseases.org/rare-diseases/acromegaly/?_rt=MnwxfGFjcm9tZWdhbHl8MTc3MjM0OTczOA&_rt_nonce=bb19f820f6",
+    "questions": [
+      {
+        "question": "How would you rate your joint pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "carpenter syndrome": {
+    "disease": "Carpenter Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/carpenter-syndrome/?_rt=MXwxfGNhcnBlbnRlciBzeW5kcm9tZXwxNzcyMzQ5NzUy&_rt_nonce=9f3dab6137",
+    "questions": [
+      {
+        "question": "How would you rate your headache level today on a scale of 1-10?",
+        "tag": "Headache"
+      },
+      {
+        "question": "Are you experiencing any breathing difficulties today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "autoimmune hepatitis": {
+    "disease": "Autoimmune Hepatitis",
+    "disease_url": "https://rarediseases.org/rare-diseases/autoimmune-hepatitis/?_rt=MXwxfGF1dG9pbW11bmUgaGVwYXRpdGlzfDE3NzIzNDk3NjU&_rt_nonce=f3e63880d2",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Abdominal Pain"
+      }
+    ]
+  },
+  "alkaptonuria": {
+    "disease": "Alkaptonuria",
+    "disease_url": "https://rarediseases.org/rare-diseases/alkaptonuria/?_rt=MXwxfGFsa2FwdG9udXJpYXwxNzcyMzQ5Nzc4&_rt_nonce=f535773b06",
+    "questions": [
+      {
+        "question": "How would you rate your joint pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any joint stiffness or swelling today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your ability to move freely without discomfort on a scale of 1-10",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "acute intermittent porphyria": {
+    "disease": "Acute Intermittent Porphyria",
+    "disease_url": "https://rarediseases.org/rare-diseases/acute-intermittent-porphyria/?_rt=MXwxfGFjdXRlIGludGVybWl0dGVudCBwb3JwaHlyaWF8MTc3MjM0OTc5Mg&_rt_nonce=a6ef7fe25a",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Are you experiencing nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "Rate your overall energy level today on a scale of 1-10",
+        "tag": "Energy"
+      }
+    ]
+  },
+  "arthrogryposis multiplex congenita": {
+    "disease": "Arthrogryposis Multiplex Congenita",
+    "disease_url": "https://rarediseases.org/rare-diseases/arthrogryposis-multiplex-congenita/?_rt=MXwxfGFydGhyb2dyeXBvc2lzIG11bHRpcGxleCBjb25nZW5pdGF8MTc3MjM0OTgwNg&_rt_nonce=19f0f8d5f9",
+    "questions": [
+      {
+        "question": "How would you rate your joint stiffness today on a scale of 1-10?",
+        "tag": "Joint Stiffness"
+      },
+      {
+        "question": "Are you experiencing any muscle pain today? (yes/no)",
+        "tag": "Muscle Pain"
+      },
+      {
+        "question": "Rate your ability to move your limbs today on a scale of 1-10",
+        "tag": "Mobility"
+      }
+    ]
+  },
+  "cri du chat syndrome": {
+    "disease": "Cri du Chat Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/cri-du-chat-syndrome/?_rt=MXwxfGNyaSBkdSBjaGF0IHN5bmRyb21lfDE3NzIzNDk4MjM&_rt_nonce=69092e8c9f",
+    "questions": [
+      {
+        "question": "How would you rate your child's overall muscle tone today on a scale of 1-10, where 1 is very low and 10 is very high?",
+        "tag": "Muscle Tone"
+      },
+      {
+        "question": "Is your child experiencing any respiratory difficulties today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your child's level of hyperactivity today on a scale of 1-10",
+        "tag": "Hyperactivity"
+      }
+    ]
+  },
+  "adrenoleukodystrophy": {
+    "disease": "Adrenoleukodystrophy",
+    "disease_url": "https://rarediseases.org/rare-diseases/adrenoleukodystrophy/?_rt=NHwxfGFkcmVub2xldWtvZHlzdHJvcGh5fDE3NzIzNDk4MzY&_rt_nonce=ab757c0255",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any difficulty walking or with balance today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your level of cognitive clarity today on a scale of 1-10?",
+        "tag": "Cognitive"
+      }
+    ]
+  },
+  "cronkhite-canada syndrome": {
+    "disease": "Cronkhite-Canada Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/cronkhite-canada-syndrome/?_rt=MXwxfGNyb25raGl0ZS1jYW5hZGEgc3luZHJvbWV8MTc3MjM0OTg1MQ&_rt_nonce=5277737f47",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal discomfort today on a scale of 1-10?",
+        "tag": "Discomfort"
+      },
+      {
+        "question": "Did you experience any nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "Rate the severity of your diarrhea today on a scale of 1-10",
+        "tag": "Diarrhea"
+      }
+    ]
+  },
+  "achondroplasia": {
+    "disease": "Achondroplasia",
+    "disease_url": "https://rarediseases.org/rare-diseases/achondroplasia/?_rt=MXwxfGFjaG9uZHJvcGxhc2lhfDE3NzIzNDk4NjQ&_rt_nonce=3bdfb1305c",
+    "questions": [
+      {
+        "question": "How would you rate your pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any difficulty with mobility or movement today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your overall comfort level with your body posture and positioning on a scale of 1-10",
+        "tag": "Posture Comfort"
+      }
+    ]
+  },
+  "cytomegalovirus infection (congenital severe form)": {
+    "disease": "Cytomegalovirus Infection (congenital severe form)",
+    "disease_url": "https://rarediseases.org/rare-diseases/cytomegalovirus-infection/?_rt=MnwxfGN5dG9tZWdhbG92aXJ1cyBpbmZlY3Rpb24gKGNvbmdlbml0YWwgc2V2ZXJlIGZvcm0pfDE3NzIzNDk4ODA&_rt_nonce=0e78c492f9",
+    "questions": [
+      {
+        "question": "How would you rate your fever level today on a scale of 1-10?",
+        "tag": "Fever"
+      },
+      {
+        "question": "Are you experiencing any vision problems today? (yes/no)",
+        "tag": "Vision"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "celiac artery compression syndrome": {
+    "disease": "Celiac Artery Compression Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/superior-mesenteric-artery-syndrome/?_rt=M3wxfGNlbGlhYyBhcnRlcnkgY29tcHJlc3Npb24gc3luZHJvbWV8MTc3MjM0OTg5NA&_rt_nonce=304161eb2a",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience nausea or vomiting today? (yes/no)",
+        "tag": "Nausea"
+      },
+      {
+        "question": "How full do you feel after eating on a scale of 1-10?",
+        "tag": "Satiety"
+      }
+    ]
+  },
+  "budd-chiari syndrome": {
+    "disease": "Budd-Chiari Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/budd-chiari-syndrome/?_rt=M3wxfGJ1ZGQtY2hpYXJpIHN5bmRyb21lfDE3NzIzNDk5MDg&_rt_nonce=3e54f3e91b",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Are you experiencing any yellowing of the skin or eyes (jaundice) today? (yes/no)",
+        "tag": "Jaundice"
+      },
+      {
+        "question": "Rate the severity of your swelling or edema in the legs today on a scale of 1-10",
+        "tag": "Edema"
+      }
+    ]
+  },
+  "epidermolysis bullosa": {
+    "disease": "Epidermolysis Bullosa",
+    "disease_url": "https://rarediseases.org/rare-diseases/epidermolysis-bullosa/?_rt=MnwxfGVwaWRlcm1vbHlzaXMgYnVsbG9zYXwxNzcyMzQ5OTIx&_rt_nonce=e446b22681",
+    "questions": [
+      {
+        "question": "How would you rate the severity of your skin blisters today on a scale of 1-10?",
+        "tag": "Blisters"
+      },
+      {
+        "question": "Are you experiencing any difficulty swallowing today? (yes/no)",
+        "tag": "Swallowing"
+      },
+      {
+        "question": "Rate your level of skin pain today on a scale of 1-10",
+        "tag": "Skin Pain"
+      }
+    ]
+  },
+  "castleman disease": {
+    "disease": "Castleman Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/castlemans-disease/?_rt=MXwxfGNhc3RsZW1hbiBkaXNlYXNlfDE3NzIzNDk5NjQ&_rt_nonce=0c1395ee45",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any night sweats today? (yes/no)",
+        "tag": "Sleep Quality"
+      },
+      {
+        "question": "Rate your level of nausea on a scale of 1-10",
+        "tag": "Nausea"
+      }
+    ]
+  },
+  "dyggve-melchior-clausen syndrome": {
+    "disease": "Dyggve-Melchior-Clausen Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/dyggve-melchior-clausen-syndrome/?_rt=MXwxfGR5Z2d2ZS1tZWxjaGlvci1jbGF1c2VuIHN5bmRyb21lfDE3NzIzNDk5Nzg&_rt_nonce=27ced85632",
+    "questions": [
+      {
+        "question": "How would you rate your pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any difficulty walking or moving today? (yes/no)",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Rate your overall discomfort or stiffness level on a scale of 1-10",
+        "tag": "Discomfort"
+      }
+    ]
+  },
+  "aplastic anemia": {
+    "disease": "Aplastic Anemia",
+    "disease_url": "https://rarediseases.org/rare-diseases/acquired-aplastic-anemia/?_rt=NHwxfGFwbGFzdGljIGFuZW1pYXwxNzcyMzQ5OTky&_rt_nonce=c5345915ce",
+    "questions": [
+      {
+        "question": "How would you rate your fatigue level today on a scale of 1-10?",
+        "tag": "Fatigue"
+      },
+      {
+        "question": "Did you experience any dizziness or lightheadedness today? (yes/no)",
+        "tag": "Dizziness"
+      },
+      {
+        "question": "How would you rate your breathing difficulty today on a scale of 1-10?",
+        "tag": "Breathing"
+      }
+    ]
+  },
+  "acid maltase deficiency": {
+    "disease": "Acid Maltase Deficiency",
+    "disease_url": "https://rarediseases.org/rare-diseases/disaccharide-intolerance-i/?_rt=MTl8MXxhY2lkIG1hbHRhc2UgZGVmaWNpZW5jeXwxNzcyMzUwMDA2&_rt_nonce=a4587b362a",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal discomfort today on a scale of 1-10?",
+        "tag": "Abdominal Pain"
+      },
+      {
+        "question": "Did you experience any diarrhea today? (yes/no)",
+        "tag": "Diarrhea"
+      },
+      {
+        "question": "How would you rate your overall energy level today on a scale of 1-10?",
+        "tag": "Energy Level"
+      }
+    ]
+  },
+  "albers-schonberg disease": {
+    "disease": "Albers-Schonberg Disease",
+    "disease_url": "https://rarediseases.org/rare-diseases/osteopetrosis/?_rt=M3wxfGFsYmVycy1zY2hvbmJlcmcgZGlzZWFzZXwxNzcyMzUwMDIw&_rt_nonce=ff4e98ecf4",
+    "questions": [
+      {
+        "question": "How would you rate your bone pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any vision problems today? (yes/no)",
+        "tag": "Vision"
+      },
+      {
+        "question": "Rate your overall fatigue level on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "bowen-conradi syndrome": {
+    "disease": "Bowen-Conradi Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/bowen-hutterite-syndrome/?_rt=MXwxfGJvd2VuLWNvbnJhZGkgc3luZHJvbWV8MTc3MjM1MDAzNQ&_rt_nonce=1860a3aa95",
+    "questions": [
+      {
+        "question": "How would you rate your infant's feeding difficulty today on a scale of 1-10?",
+        "tag": "Feeding"
+      },
+      {
+        "question": "Is your infant experiencing any breathing difficulties today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your infant's overall comfort level today on a scale of 1-10",
+        "tag": "Comfort"
+      }
+    ]
+  },
+  "alternating hemiplegia of childhood": {
+    "disease": "Alternating Hemiplegia of Childhood",
+    "disease_url": "https://rarediseases.org/rare-diseases/alternating-hemiplegia-of-childhood/?_rt=MXwxfGFsdGVybmF0aW5nIGhlbWlwbGVnaWEgb2YgY2hpbGRob29kfDE3NzIzNTAwNDg&_rt_nonce=0eb3ec6c2f",
+    "questions": [
+      {
+        "question": "How would you rate the severity of your weakness or paralysis today on a scale of 1-10?",
+        "tag": "Mobility"
+      },
+      {
+        "question": "Did you experience any difficulty breathing today? (yes/no)",
+        "tag": "Breathing"
+      },
+      {
+        "question": "Rate your level of fatigue today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  },
+  "charge syndrome (variant forms)": {
+    "disease": "CHARGE Syndrome (variant forms)",
+    "disease_url": "https://rarediseases.org/rare-diseases/charge-syndrome/?_rt=OHwxfGNoYXJnZSBzeW5kcm9tZSAodmFyaWFudCBmb3Jtcyl8MTc3MjM1MDA2Mw&_rt_nonce=66680c2a9b&_rt_nonce=002bc4b6b5",
+    "questions": [
+      {
+        "question": "How would you rate your vision clarity today on a scale of 1-10?",
+        "tag": "Vision"
+      },
+      {
+        "question": "Are you experiencing any difficulty hearing today? (yes/no)",
+        "tag": "Hearing"
+      },
+      {
+        "question": "Rate your level of nausea or discomfort while eating on a scale of 1-10",
+        "tag": "Nausea"
+      }
+    ]
+  },
+  "carcinoid syndrome": {
+    "disease": "Carcinoid Syndrome",
+    "disease_url": "https://rarediseases.org/rare-diseases/carcinoid-syndrome/?_rt=MXwxfGNhcmNpbm9pZCBzeW5kcm9tZXwxNzcyMzUwMTEz&_rt_nonce=f7318c84ff",
+    "questions": [
+      {
+        "question": "How would you rate your abdominal pain level today on a scale of 1-10?",
+        "tag": "Pain Level"
+      },
+      {
+        "question": "Did you experience any diarrhea today? (yes/no)",
+        "tag": "Digestion"
+      },
+      {
+        "question": "Rate your overall energy level today on a scale of 1-10",
+        "tag": "Fatigue"
+      }
+    ]
+  }
+}

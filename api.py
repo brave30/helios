@@ -11,6 +11,7 @@ Main endpoints:
 import os
 import re
 import time
+import json
 import requests
 from datetime import datetime, timezone
 from typing import List, Optional, Any
@@ -43,8 +44,25 @@ app.add_middleware(
 
 ELEVENLABS_BASE_URL = "https://api.elevenlabs.io/v1"
 
-# In-memory cache for disease questions (disease_name_lower -> response_data)
-_questions_cache: dict = {}
+# File-based cache for disease questions
+CACHE_FILE = os.path.join(os.path.dirname(__file__), "disease_cache.json")
+
+def load_cache() -> dict:
+    """Load cache from JSON file."""
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, "r") as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
+
+def save_cache(cache: dict):
+    """Save cache to JSON file."""
+    with open(CACHE_FILE, "w") as f:
+        json.dump(cache, f, indent=2)
+
+_questions_cache: dict = load_cache()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -81,6 +99,16 @@ class GenerateQuestionsRequest(BaseModel):
 
 class MakeCallRequest(BaseModel):
     user_id: str
+
+
+class FlareRoutineRequest(BaseModel):
+    user_id: str
+    flare_threshold: float = 7.0  # Average metric value above this triggers flare
+
+
+class FlareAlertCallRequest(BaseModel):
+    user_id: str
+    phone_number: Optional[str] = None  # Optional override, defaults to MY_PHONE_NUMBER
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -199,6 +227,45 @@ def update_agent(agent_id: str, api_key: str, questions: list) -> bool:
                 "agent": {
                     "prompt": {"prompt": build_system_prompt(questions), "llm": "gemini-2.0-flash", "temperature": 0.5},
                     "first_message": "Hey! This is your SecondSense check-in call. I have a few quick questions — just answer out loud. Ready? Let's begin.",
+                    "language": "en",
+                },
+                "tts": {"voice_id": "EXAVITQu4vr4xnSDxMaL"},
+            },
+        },
+    )
+    return response.status_code in (200, 201)
+
+
+def update_agent_for_flare_alert(agent_id: str, api_key: str, child_name: str, condition: str) -> bool:
+    """Update ElevenLabs agent for flare alert notification call."""
+    prompt = f"""You are a caring health assistant named SecondSense making an important notification call.
+
+Your task is to:
+1. Greet the caregiver warmly
+2. Inform them that {child_name} has entered a FLARE state for their {condition}
+3. Advise them to check the SecondSense app for the updated flare care routine
+4. Ask if they have any immediate questions
+5. Remind them to reach out to their healthcare provider if symptoms worsen
+6. End the call with reassurance
+
+Rules:
+- Be calm, compassionate, and supportive
+- Keep the call brief but informative (under 2 minutes)
+- Do not provide medical advice beyond what's in the app
+- If they ask detailed questions, direct them to their healthcare provider
+"""
+    
+    first_message = f"Hi, this is SecondSense calling with an important health update about {child_name}. Do you have a moment?"
+    
+    response = requests.patch(
+        f"{ELEVENLABS_BASE_URL}/convai/agents/{agent_id}",
+        headers={"xi-api-key": api_key, "Content-Type": "application/json"},
+        json={
+            "name": "SecondSense Flare Alert",
+            "conversation_config": {
+                "agent": {
+                    "prompt": {"prompt": prompt, "llm": "gemini-2.0-flash", "temperature": 0.5},
+                    "first_message": first_message,
                     "language": "en",
                 },
                 "tts": {"voice_id": "EXAVITQu4vr4xnSDxMaL"},
@@ -342,6 +409,7 @@ async def generate_questions(request: GenerateQuestionsRequest):
             "disease_url": symptoms_data["page_url"],
             "questions": questions
         }
+        save_cache(_questions_cache)
         print(f"📦 Cached questions for '{disease_name}'")
         
         return {
@@ -482,6 +550,251 @@ async def get_user(user_id: str):
 async def health():
     """Health check."""
     return {"status": "ok"}
+
+
+@app.post("/generate-flare-routine")
+async def generate_flare_routine(request: FlareRoutineRequest):
+    """
+    Generate a modified routine for flare weeks.
+    
+    Pipeline:
+    1. Fetch user's routine data and recent symptom logs
+    2. Analyze symptoms to detect flare week
+    3. Send to Groq to generate adjusted routine
+    4. Save flare tasks/meds to MongoDB
+    """
+    from groq import Groq
+    
+    db = get_db()
+    collection = db["users"]
+    
+    try:
+        user_oid = ObjectId(request.user_id)
+    except:
+        raise HTTPException(status_code=400, detail="Invalid user_id")
+    
+    user = collection.find_one({"_id": user_oid})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Get user data
+    condition = user.get("condition", "Unknown condition")
+    child_name = user.get("childName", "the patient")
+    routine_tasks = user.get("routineTasks", [])
+    medications = user.get("medications", [])
+    logs = user.get("logs", [])
+    
+    # Analyze recent symptoms (last 7 days)
+    recent_logs = logs[-7:] if len(logs) >= 7 else logs
+    
+    if not recent_logs:
+        raise HTTPException(status_code=400, detail="No symptom logs available")
+    
+    # Calculate symptom severity
+    all_values = []
+    symptom_summary = []
+    
+    for log in recent_logs:
+        log_time = log.get("time", "Unknown time")
+        for metric in log.get("metrics", []):
+            name = metric.get("name", "")
+            value = metric.get("value")
+            metric_type = metric.get("metricType", "scale")
+            
+            if metric_type == "scale" and isinstance(value, (int, float)):
+                all_values.append(value)
+                symptom_summary.append(f"- {name}: {value}/10")
+            elif metric_type == "boolean" and value is not None:
+                symptom_summary.append(f"- {name}: {'Yes' if value else 'No'}")
+                if value:  # True = symptom present
+                    all_values.append(8)  # Treat as high severity
+    
+    if not all_values:
+        raise HTTPException(status_code=400, detail="No measurable symptoms found")
+    
+    avg_severity = sum(all_values) / len(all_values)
+    is_flare = avg_severity >= request.flare_threshold
+    
+    # Format routine data for prompt
+    routine_str = "\n".join([f"- {t.get('name', t)} (category: {t.get('category', 'general')}, time: {t.get('time', 'N/A')})" for t in routine_tasks]) if routine_tasks else "No routine tasks defined"
+    meds_str = "\n".join([f"- {m.get('name', m)} ({m.get('dose', 'N/A')}, {m.get('time', 'N/A')})" for m in medications]) if medications else "No medications defined"
+    symptoms_str = "\n".join(symptom_summary)
+    
+    # Build Groq prompt
+    prompt = f"""You are a medical care specialist helping manage a patient with a rare disease during a flare period.
+
+Patient: {child_name}
+Condition: {condition}
+Current Status: {'FLARE WEEK - symptoms are elevated and require adjusted care' if is_flare else 'Normal week - monitoring'}
+Average Symptom Severity: {avg_severity:.1f}/10
+
+Current Daily Routine:
+{routine_str}
+
+Current Medications:
+{meds_str}
+
+Recent Symptom Log (past check-ins):
+{symptoms_str}
+
+Based on the elevated symptoms, generate a SPECIFIC flare week care plan.
+
+IMPORTANT: Generate practical, actionable tasks that a caregiver can follow.
+
+Categories to use: "care", "rest", "medication", "nutrition", "activity", "monitoring", "school", "therapy"
+Time formats to use: "All Day", "Morning", "Afternoon", "Evening", "Night", or specific times like "8 AM", "6 PM"
+
+Respond with a JSON object:
+{{
+  "isFlare": true,
+  "severity": "mild" | "moderate" | "severe",
+  "alertLevel": "green" | "yellow" | "red",
+  "flareTasks": [
+    {{"name": "Task Name", "category": "care", "time": "All Day"}}
+  ],
+  "recommendations": ["actionable recommendation 1", "actionable recommendation 2", "actionable recommendation 3"],
+  "message": "Brief supportive message for the caregiver",
+  "tip": "A detailed, medically-informed tip (2-3 sentences) specific to {condition} flare management. Include what signs to watch for, comfort measures, and when to seek medical attention. This will be displayed in a PDF report for the caregiver."
+}}
+
+Generate 4-6 flare tasks covering rest, symptom management, and adjusted activities.
+Respond ONLY with valid JSON, no other text."""
+    
+    # Call Groq API
+    groq_key = os.getenv("GROQ_API_KEY")
+    if not groq_key:
+        raise HTTPException(status_code=500, detail="GROQ_API_KEY not configured")
+    
+    try:
+        client = Groq(api_key=groq_key)
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "You are a medical assistant that generates care routines for rare disease patients. Respond only with valid JSON."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=1000
+        )
+        
+        result_text = response.choices[0].message.content.strip()
+        
+        # Parse JSON response
+        if result_text.startswith("```"):
+            result_text = result_text.split("```")[1]
+            if result_text.startswith("json"):
+                result_text = result_text[4:]
+        
+        flare_data = json.loads(result_text)
+        
+    except json.JSONDecodeError as e:
+        raise HTTPException(status_code=500, detail=f"Failed to parse Groq response: {e}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Groq API error: {e}")
+    
+    # Save flare tasks to MongoDB if it's a flare week
+    if flare_data.get("isFlare", is_flare):
+        flare_tasks = flare_data.get("flareTasks", [])
+        
+        # Ensure each task has proper schema: {name, category, time, _id}
+        for task in flare_tasks:
+            task["_id"] = ObjectId()
+            # Ensure required fields exist with proper defaults
+            if "category" not in task:
+                task["category"] = "care"
+            if "time" not in task:
+                task["time"] = "All Day"
+        
+        collection.update_one(
+            {"_id": user_oid},
+            {
+                "$set": {
+                    "flareTasks": flare_tasks,
+                    "isFlareEnabled": True,
+                    "mode": "flare",
+                    "updatedAt": datetime.now(timezone.utc)
+                }
+            }
+        )
+    
+    return {
+        "success": True,
+        "avgSeverity": round(avg_severity, 2),
+        "isFlare": flare_data.get("isFlare", is_flare),
+        "severity": flare_data.get("severity", "unknown"),
+        "alertLevel": flare_data.get("alertLevel", "yellow"),
+        "flareTasks": convert_objectids(flare_data.get("flareTasks", [])),
+        "recommendations": flare_data.get("recommendations", []),
+        "message": flare_data.get("message", ""),
+        "tip": flare_data.get("tip", "")
+    }
+
+
+@app.post("/flare-alert-call")
+async def flare_alert_call(request: FlareAlertCallRequest):
+    """
+    Make a phone call to notify caregiver that patient has entered flare state.
+    
+    Pipeline:
+    1. Fetch user data from MongoDB
+    2. Update ElevenLabs agent with flare alert message
+    3. Trigger outbound call
+    """
+    api_key = os.getenv("ELEVENLABS_API_KEY")
+    agent_id = os.getenv("ELEVENLABS_AGENT_ID")
+    phone_id = os.getenv("ELEVENLABS_PHONE_NUMBER_ID")
+    to_number = request.phone_number or os.getenv("MY_PHONE_NUMBER")
+    
+    if not all([api_key, agent_id, phone_id, to_number]):
+        raise HTTPException(status_code=500, detail="Missing environment variables")
+    
+    db = get_db()
+    collection = db["users"]
+    
+    try:
+        user_oid = ObjectId(request.user_id)
+    except:
+        raise HTTPException(status_code=400, detail="Invalid user_id")
+    
+    user = collection.find_one({"_id": user_oid})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Get user info
+    child_name = user.get("childName", "your child")
+    condition = user.get("condition", "their condition")
+    caregiver_name = user.get("caregiverName", "Caregiver")
+    
+    # Update agent for flare alert
+    if not update_agent_for_flare_alert(agent_id, api_key, child_name, condition):
+        raise HTTPException(status_code=500, detail="Failed to update agent")
+    
+    # Trigger the call
+    try:
+        call_result = trigger_call(agent_id, phone_id, to_number, api_key)
+        print(f"📞 Flare alert call initiated to {to_number}: {call_result}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Call failed: {e}")
+    
+    # Update user mode to flare
+    collection.update_one(
+        {"_id": user_oid},
+        {
+            "$set": {
+                "isFlareEnabled": True,
+                "mode": "flare",
+                "updatedAt": datetime.now(timezone.utc)
+            }
+        }
+    )
+    
+    return {
+        "success": True,
+        "message": f"Flare alert call initiated to {to_number}",
+        "childName": child_name,
+        "condition": condition,
+        "callResult": call_result
+    }
 
 
 if __name__ == "__main__":
