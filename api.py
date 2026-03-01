@@ -241,12 +241,11 @@ def update_agent_for_flare_alert(agent_id: str, api_key: str, child_name: str, c
     prompt = f"""You are a caring health assistant named SecondSense making an important notification call.
 
 Your task is to:
-1. Greet the caregiver warmly
-2. Inform them that {child_name} has entered a FLARE state for their {condition}
-3. Advise them to check the SecondSense app for the updated flare care routine
-4. Ask if they have any immediate questions
-5. Remind them to reach out to their healthcare provider if symptoms worsen
-6. End the call with reassurance
+1. Inform them that {child_name} has entered a FLARE state for their {condition}
+2. Advise them to check the SecondSense app for the updated flare care routine
+3. Ask if they have any immediate questions
+4. Remind them to reach out to their healthcare provider if symptoms worsen
+5. End the call with reassurance
 
 Rules:
 - Be calm, compassionate, and supportive
@@ -637,28 +636,58 @@ Current Medications:
 Recent Symptom Log (past check-ins):
 {symptoms_str}
 
-Based on the elevated symptoms, generate a SPECIFIC flare week care plan.
+Based on the elevated symptoms, generate a flare week care plan by MODIFYING the existing routine tasks.
 
-IMPORTANT: Generate practical, actionable tasks that a caregiver can follow.
+CRITICAL RULE - ONE-TO-ONE TRANSFORMATION:
+- You MUST generate EXACTLY the same number of flareTasks as there are routine tasks in "Current Daily Routine"
+- Each routine task should have ONE corresponding flare task
+- Do NOT add extra tasks that don't exist in the routine
+- If routine has 1 task → generate 1 flare task
+- If routine has 3 tasks → generate 3 flare tasks
 
-Categories to use: "care", "rest", "medication", "nutrition", "activity", "monitoring", "school", "therapy"
-Time formats to use: "All Day", "Morning", "Afternoon", "Evening", "Night", or specific times like "8 AM", "6 PM"
+HOW TO TRANSFORM EACH ROUTINE TASK:
+For each task in the routine, create a flare-adjusted version with:
+- Reduced duration, frequency, or intensity
+- Added breaks, rest periods, or modifications
+- Specific accommodations for the current symptoms
+- Keep the same time slot as the original task
 
-Respond with a JSON object:
+EXAMPLES OF HOW TO TRANSFORM:
+- "Homework" at 6 PM → "Limit homework to 15-20 min with 10 min rest breaks" at 6 PM ✓
+- "Soccer Practice" at 4 PM → "Skip soccer, do 10 min gentle stretching instead" at 4 PM ✓
+- "School" at 8 AM → "Request reduced workload from teacher for 3 days" at 8 AM ✓
+- "Bath Time" at 7 PM → "Warm bath with Epsom salts for 15 min" at 7 PM ✓
+- "Playtime" at 3 PM → "Quiet indoor activities only, no running" at 3 PM ✓
+
+CRITICAL - DO NOT:
+- Add "gentle" or "light" in front of the original name (e.g., "Gentle Homework" ❌)
+- Generate more tasks than exist in the routine
+- Create tasks unrelated to the current routine
+
+CATEGORY VALUES (use exactly one):
+- "medications" → pill/medicine tasks
+- "care" → physical comfort, symptom relief
+- "nutrition" → food, drinks, diet
+- "school" → school/activity adjustments
+- "admin" → tracking, appointments, communication
+
+TIME VALUES: Keep the same time as the original routine task, or use "All Day", "Morning", "Afternoon", "Evening", "Night"
+
+Respond with JSON:
 {{
   "isFlare": true,
   "severity": "mild" | "moderate" | "severe",
   "alertLevel": "green" | "yellow" | "red",
   "flareTasks": [
-    {{"name": "Task Name", "category": "care", "time": "All Day"}}
+    {{"name": "SPECIFIC ACTION with details", "category": "medications|care|nutrition|school|admin", "time": "same as original routine task"}}
   ],
-  "recommendations": ["actionable recommendation 1", "actionable recommendation 2", "actionable recommendation 3"],
+  "recommendations": ["specific actionable recommendation 1", "specific actionable recommendation 2", "specific actionable recommendation 3"],
   "message": "Brief supportive message for the caregiver",
-  "tip": "A detailed, medically-informed tip (2-3 sentences) specific to {condition} flare management. Include what signs to watch for, comfort measures, and when to seek medical attention. This will be displayed in a PDF report for the caregiver."
+  "tip": "A detailed tip (2-3 sentences) specific to {condition} flare management with warning signs and when to seek help."
 }}
 
-Generate 4-6 flare tasks covering rest, symptom management, and adjusted activities.
-Respond ONLY with valid JSON, no other text."""
+IMPORTANT: Generate EXACTLY {len(routine_tasks)} flare task(s) - one for each routine task.
+Respond ONLY with valid JSON."""
     
     # Call Groq API
     groq_key = os.getenv("GROQ_API_KEY")
