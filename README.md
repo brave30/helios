@@ -1,6 +1,17 @@
-# SecondSense — ElevenLabs Calling Agent
+# Helios — AI-Powered Rare Disease Symptom Tracking
 
-A Python project that calls your cell phone and asks you a personalized set of questions using an ElevenLabs AI voice agent and Twilio.
+An AI-powered health companion that helps caregivers track symptoms of rare diseases through automated phone calls, generates personalized care routines during flare weeks, and provides intelligent symptom analysis.
+
+---
+
+## Features
+
+- **Symptom Question Generation** — Scrapes rare disease symptoms and generates personalized tracking questions using Groq AI
+- **AI Phone Calls** — Automated check-in calls via ElevenLabs voice AI + Twilio
+- **Flare Detection** — Analyzes symptom logs to detect flare weeks
+- **Flare Routine Generation** — AI-generated care routines adjusted for flare periods
+- **Flare Alert Calls** — Automated phone notifications when patient enters flare state
+- **Disease Cache** — Pre-cached questions for 100+ rare diseases
 
 ---
 
@@ -8,11 +19,10 @@ A Python project that calls your cell phone and asks you a personalized set of q
 
 | Service | What you need | Where to get it |
 |---|---|---|
-| **ElevenLabs** | API Key + Agent ID | [elevenlabs.io](https://elevenlabs.io) |
+| **ElevenLabs** | API Key + Agent ID + Phone Number ID | [elevenlabs.io](https://elevenlabs.io) |
 | **Twilio** | Account SID, Auth Token, Phone Number | [twilio.com](https://twilio.com) |
-
-> **Twilio trial note:** Free trial accounts can only call *verified* numbers.  
-> Verify your cell at: [Twilio Console → Verified Caller IDs](https://console.twilio.com/us1/develop/phone-numbers/manage/verified)
+| **Groq** | API Key (starts with `gsk_`) | [console.groq.com](https://console.groq.com) |
+| **MongoDB** | Connection URI | [mongodb.com](https://mongodb.com) |
 
 ---
 
@@ -21,104 +31,181 @@ A Python project that calls your cell phone and asks you a personalized set of q
 ### 1. Install dependencies
 
 ```bash
-cd /Users/brave/Desktop/SecondSense
+python3 -m venv env
+source env/bin/activate
 pip install -r requirements.txt
 ```
 
 ### 2. Configure credentials
 
-```bash
-cp .env.example .env
-```
+Create a `.env` file with:
 
-Open `.env` and fill in all six values:
+```env
+GROQ_API_KEY=gsk_...
 
-```
-ELEVENLABS_API_KEY=...
-ELEVENLABS_AGENT_ID=...       # leave blank for now
-TWILIO_ACCOUNT_SID=...
+# ElevenLabs
+ELEVENLABS_API_KEY=sk_...
+ELEVENLABS_AGENT_ID=agent_...
+ELEVENLABS_PHONE_NUMBER_ID=phnum_...
+
+# Twilio
+TWILIO_ACCOUNT_SID=AC...
 TWILIO_AUTH_TOKEN=...
-TWILIO_PHONE_NUMBER=+1...     # your Twilio number
-MY_PHONE_NUMBER=+1...         # your cell (must be Twilio-verified)
+TWILIO_PHONE_NUMBER=+1...
+
+# Target
+MY_PHONE_NUMBER=+1...
+
+# MongoDB
+MONGODB_URI=mongodb+srv://...
 ```
 
-### 3. Customize your questions
-
-Edit `agent_config.py` — update the `QUESTIONS` list to ask whatever you want:
-
-```python
-QUESTIONS = [
-    "How are you feeling today, on a scale from one to ten?",
-    "What is your top priority for today?",
-    ...
-]
-```
-
-You can also change `FIRST_MESSAGE` (the agent's opening line) and `AGENT_NAME`.
-
-### 4. Create the ElevenLabs agent (first time only)
+### 3. Run the API
 
 ```bash
-python create_agent.py
+python api.py
 ```
 
-This will print your `agent_id`. Copy it into `.env`:
-
-```
-ELEVENLABS_AGENT_ID=xxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-> **Already have an agent?** Just set `ELEVENLABS_AGENT_ID` in `.env` and
-> run `python create_agent.py` again — it will offer to update it with your
-> latest `agent_config.py` settings.
+Server runs at `http://localhost:8001`
 
 ---
 
-## Making a Call
+## API Endpoints
 
+### Health Check
 ```bash
-python make_call.py
+GET /health
 ```
 
-Your cell phone will ring within a few seconds. Answer and speak naturally — the agent will work through your questions one by one.
-
-To call a different number without changing `.env`:
-
+### Get User
 ```bash
-python make_call.py --to +12025551234
+GET /user/{user_id}
+```
+
+### Generate Symptom Questions
+Scrapes rare disease info and generates 3 tracking questions.
+```bash
+POST /generate-questions
+Content-Type: application/json
+
+{
+  "user_id": "mongo_user_id",
+  "disease_name": "marfan syndrome"
+}
+```
+
+### Make Check-in Call
+Calls user, asks symptom questions, extracts answers, saves to MongoDB.
+```bash
+POST /make-call
+Content-Type: application/json
+
+{
+  "user_id": "mongo_user_id"
+}
+```
+
+### Generate Flare Routine
+Analyzes symptoms and generates AI care routine for flare week.
+```bash
+POST /generate-flare-routine
+Content-Type: application/json
+
+{
+  "user_id": "mongo_user_id",
+  "flare_threshold": 5.0
+}
+```
+
+Response:
+```json
+{
+  "success": true,
+  "avgSeverity": 7.1,
+  "isFlare": true,
+  "severity": "moderate",
+  "alertLevel": "yellow",
+  "flareTasks": [
+    {"name": "Increased Rest", "category": "rest", "time": "All Day", "_id": "..."},
+    {"name": "Pain Management", "category": "medication", "time": "Morning", "_id": "..."}
+  ],
+  "recommendations": ["..."],
+  "message": "...",
+  "tip": "Detailed medical tip for PDF..."
+}
+```
+
+### Flare Alert Call
+Calls caregiver to notify patient has entered flare state.
+```bash
+POST /flare-alert-call
+Content-Type: application/json
+
+{
+  "user_id": "mongo_user_id",
+  "phone_number": "+1234567890"  // optional, defaults to MY_PHONE_NUMBER
+}
 ```
 
 ---
 
-## Viewing Transcripts
+## Batch Scraping
 
-After each call, view the full conversation transcript at:  
-👉 [ElevenLabs → Conversational AI → History](https://elevenlabs.io/app/conversational-ai/history)
+Pre-populate the disease question cache for 100 rare diseases:
+
+```bash
+python batch_scrape.py
+```
+
+This saves results to `disease_cache.json` for instant responses.
 
 ---
 
 ## Project Structure
 
 ```
-SecondSense/
-├── .env                # Your credentials (never commit this!)
-├── .env.example        # Credential template
+helios/
+├── api.py              # Main FastAPI server
+├── scrapper.py         # Disease symptom scraping + Groq question generation
+├── batch_scrape.py     # Batch cache 100 rare diseases
+├── disease_cache.json  # Cached disease questions
+├── agent_config.py     # ElevenLabs agent configuration
+├── create_agent.py     # One-time agent setup
+├── make_call.py        # Standalone call script
 ├── requirements.txt    # Python dependencies
-├── agent_config.py     # ✏️  Edit your questions here
-├── create_agent.py     # One-time agent setup / update
-├── make_call.py        # Trigger a call
+├── .env                # Credentials (never commit!)
 └── README.md
 ```
 
 ---
 
-## Changing Voices
+## MongoDB User Schema
 
-In `create_agent.py`, the `voice_id` field selects the ElevenLabs voice.  
-Browse all available voices at: [elevenlabs.io/voice-library](https://elevenlabs.io/voice-library)  
-Copy the voice ID from the voice detail page and paste it into `create_agent.py`.
+```json
+{
+  "_id": "ObjectId",
+  "childName": "string",
+  "condition": "string",
+  "caregiverName": "string",
+  "mode": "normal" | "flare",
+  "isFlareEnabled": boolean,
+  "metrics": [{ "name": "...", "tag": "...", "type": "scale|boolean", "value": null }],
+  "routineTasks": [{ "name": "...", "category": "...", "time": "...", "_id": "..." }],
+  "flareTasks": [{ "name": "...", "category": "...", "time": "...", "_id": "..." }],
+  "medications": [...],
+  "flareMeds": [...],
+  "logs": [{ "time": "datetime", "metrics": [...] }]
+}
+```
 
-## Changing the AI Model
+---
 
-In `create_agent.py`, the `llm` field controls which LLM powers the agent.  
-Options include: `gemini-2.0-flash`, `gpt-4o-mini`, `claude-3-5-haiku`.
+## Categories for Tasks
+
+`care`, `rest`, `medication`, `nutrition`, `activity`, `monitoring`, `school`, `therapy`
+
+---
+
+## License
+
+MIT
