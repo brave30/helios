@@ -2,3 +2,4 @@ elevenlabs>=1.0.0
 python-dotenv>=1.0.0
 requests>=2.31.0
 twilio>=9.0.0
+pymongo[srv]>=4.6.0
